@@ -5,12 +5,6 @@ info:
     description: VirusTotal API
     version: "v3"
 
-components:
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header       
-      name: x-apikey
 servers:
     - url: https://virustotal.com/api/v3
 
@@ -19,6 +13,8 @@ paths:
         get:
             operationId: lookupFileHash
             summary: Lookup File Hash information
+            security:
+            - ApiKeyAuth: []
             parameters:
                 - in: path
                   name: hash
@@ -29,7 +25,12 @@ paths:
             responses:
                 "200":
                     description: OK
-                    content:
-                        application/json:
-                            schema:
-    
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header       
+      name: x-apikey
+
+                
