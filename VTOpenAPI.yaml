@@ -32,6 +32,8 @@ paths:
                     description: OK
                 "400":
                     description: Bad Request
+                "401":
+                    description: No Auth Key Provided
                 "500":
                     description: Internal Server Error
             security:
@@ -52,6 +54,8 @@ paths:
                     description: OK
                 "400":
                     description: Bad Request
+                "401":
+                    description: No Auth Key Provided
                 "500":
                     description: Internal Server Error
             security:
