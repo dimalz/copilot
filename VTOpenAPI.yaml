@@ -13,6 +13,8 @@ paths:
         get:
             operationId: lookupFileHash
             summary: Lookup File Hash information
+            security:
+            - ApiKeyAuth: []
             parameters:
                 - in: path
                   name: hash
@@ -28,5 +30,11 @@ paths:
                 "500":
                     description: Internal Server Error
 
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header       
+      name: x-apikey
 
                 
