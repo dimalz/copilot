@@ -36,3 +36,23 @@ paths:
                     description: Internal Server Error
             security:
             - ApiKeyAuth: []
+    /ip_addresses/{ip}:
+        get:
+            operationId: lookupIPAddress
+            summary: Lookup IP Address information
+            parameters:
+                - in: path
+                  name: ip
+                  schema:
+                      type: string
+                  required: true
+                  description: The ip to lookup
+            responses:
+                "200":
+                    description: OK
+                "400":
+                    description: Bad Request
+                "500":
+                    description: Internal Server Error
+            security:
+            - ApiKeyAuth: []
