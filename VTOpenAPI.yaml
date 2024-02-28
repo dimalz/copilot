@@ -8,13 +8,18 @@ info:
 servers:
     - url: https://virustotal.com/api/v3
 
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header       
+      name: x-apikey
+
 paths:
     /files/{hash}:
         get:
             operationId: lookupFileHash
             summary: Lookup File Hash information
-            security:
-            - ApiKeyAuth: []
             parameters:
                 - in: path
                   name: hash
@@ -29,12 +34,5 @@ paths:
                     description: Bad Request
                 "500":
                     description: Internal Server Error
-
-components:
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header       
-      name: x-apikey
-
-                
+            security:
+            - ApiKeyAuth: []
