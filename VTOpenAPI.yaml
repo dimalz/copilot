@@ -16,7 +16,7 @@ components:
       name: x-apikey
 
 paths:
-    /files/:
+    /files/{hash}:
         get:
             operationId: lookupFileHash
             summary: Lookup File Hash information
